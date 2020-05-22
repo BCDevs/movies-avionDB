@@ -6,7 +6,6 @@ async function initDB(){
     window.collection = await aviondb.initCollection("movies");
 }
 initDB();
-$('#getMovies').click();
 async function getMovies(){
       let response = await collection.find({})
       console.log(response)
@@ -118,3 +117,4 @@ let name = document.getElementById('d-name').value
  document.querySelector('#response').innerHTML = `Movie ${name} Deleted Successfully.`;
  $('#getMovies').click();
 }
+$('#getMovies').click();
