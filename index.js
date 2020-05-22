@@ -6,6 +6,7 @@ async function initDB(){
     window.collection = await aviondb.initCollection("movies");
 }
 initDB();
+$('#getMovies').click();
 async function getMovies(){
       let response = await collection.find({})
       console.log(response)
