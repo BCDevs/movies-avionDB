@@ -2,13 +2,12 @@ async function initDB(){
    ipfs = await window.Ipfs.create();
     await ipfs.ready;
     window.aviondb = await AvionDB.init("myDB", ipfs);
-    console.log(await AvionDB.listDatabases())
+    //console.log(await AvionDB.listDatabases())
     window.collection = await aviondb.initCollection("movies");
 }
 initDB();
 async function getMovies(){
       let response = await collection.find({})
-      console.log(response)
       if (response.length ==0){
     document.querySelector('#response').innerHTML = "No Movies Listed..";
     return;
@@ -117,4 +116,3 @@ let name = document.getElementById('d-name').value
  document.querySelector('#response').innerHTML = `Movie ${name} Deleted Successfully.`;
  $('#getMovies').click();
 }
-$('#getMovies').click();
